@@ -2,21 +2,39 @@
 #define _Substructure_
 
 #include <vector>
+#include <ostream>
 
 class Substructure
 {
 	private:
+		// Array size
+		int M, N;
 
+		// Hidden variables with iid U(0, 1) prior
+		std::vector< std::vector<double> > hidden;
+
+		// Fraction of zero pixels
+		double K;
+
+		// Mean of nonzero pixels
+		double mu;
 
 		// Pixel values
 		std::vector< std::vector<double> > pixels;
 
+		// Calculate the pixel values from the parameters
+		void calculate_pixels();
 
 	public:
 		/*
 		* (M, N) are the dimensions of the array of pixels
 		*/
 		Substructure(int M, int N);
+
+		void fromPrior();
+
+
+		void print(std::ostream& out) const;
 
 };
 
