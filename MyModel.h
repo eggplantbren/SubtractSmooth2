@@ -21,11 +21,13 @@
 #define _MyModel_
 
 #include "Model.h"
+#include "Substructure.h"
 #include <vector>
 
 class MyModel:public DNest3::Model
 {
 	private:
+		Substructure s;
 
 	public:
 		MyModel();

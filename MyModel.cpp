@@ -27,18 +27,20 @@ using namespace std;
 using namespace DNest3;
 
 MyModel::MyModel()
+:s(100, 100)
 {
 
 }
 
 void MyModel::fromPrior()
 {
-
+	s.fromPrior();
 }
 
 double MyModel::perturb()
 {
 	double logH = 0.;
+	s.fromPrior();
 	return logH;
 }
 
@@ -48,9 +50,9 @@ double MyModel::logLikelihood() const
 	return logL;
 }
 
-void MyModel::print(std::ostream& out) const
+void MyModel::print(ostream& out) const
 {
-
+	s.print(out);
 }
 
 string MyModel::description() const
