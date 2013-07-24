@@ -40,7 +40,7 @@ void MyModel::fromPrior()
 double MyModel::perturb()
 {
 	double logH = 0.;
-	s.fromPrior();
+	logH += s.perturb();
 	return logH;
 }
 
